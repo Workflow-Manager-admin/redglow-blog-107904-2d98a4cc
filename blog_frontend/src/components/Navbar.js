@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginModal from './LoginModal';
+import Logo from './Logo';
 
 // PUBLIC_INTERFACE
 function Navbar({ theme, toggleTheme }) {
@@ -53,17 +54,38 @@ function Navbar({ theme, toggleTheme }) {
           zIndex: 20,
         }}
       >
-        {/* Home/Logo */}
-        <Link to="/" style={{
-          textDecoration: 'none',
-          color: '#282c34',
-          fontWeight: 700,
-          fontSize: '1.5rem',
-          letterSpacing: '.03em',
-          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-          textAlign: 'center'
-        }}>
-          QuickBlogs
+        {/* Logo + Brand */}
+        <Link
+          to="/"
+          style={{
+            textDecoration: 'none',
+          }}
+          className="navbar-logo-link"
+        >
+          <span style={{
+            display: "flex",
+            alignItems: "center",
+            gap: ".70rem",
+            fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+          }}>
+            <span className="quickblog-logo-wrap" style={{ display: "inline-flex", verticalAlign: "middle" }}>
+              <Logo className="quickblog-logo" />
+            </span>
+            <span
+              style={{
+                color: '#282c34',
+                fontWeight: 700,
+                fontSize: '1.5rem',
+                letterSpacing: '.03em',
+                textAlign: 'center',
+                lineHeight: 1,
+                userSelect: "none"
+              }}
+              className="navbar-brand-text"
+            >
+              QuickBlog
+            </span>
+          </span>
         </Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
           {/* Theme Toggle Button to the left of Home */}

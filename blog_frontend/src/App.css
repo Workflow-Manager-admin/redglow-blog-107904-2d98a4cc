@@ -220,3 +220,42 @@
   transform: translateY(0);
 }
 /* End skeleton styles */
+
+/* ========= Hero/Welome Gradient for EchoPages ======= */
+.hero-gradient {
+  /* Soft, subtle blend - pink/white/light gray with accent hint */
+  background: linear-gradient(
+    120deg,
+    #fffafa 3%,
+    #f8f9fa 42%,
+    #e6e6e6 71%,
+    #fbe9ea 90%,
+    #e639460d 98%
+  );
+  /* fallback for older browsers */
+  background-color: #fffafa;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 2px 18px 0 rgba(230,57,70,0.03);
+  transition: background 0.34s cubic-bezier(0.3,0.1,0.5,1);
+}
+
+/* Add a subtle contrast for dark mode */
+[data-theme="dark"] .hero-gradient {
+  background: linear-gradient(
+    120deg,
+    #23242b 7%,
+    #292933 32%,
+    #34343d 68%,
+    #43222a 89%,
+    #e6394644 99%
+  );
+  background-color: #23242b;
+  color: #fff;
+  border-bottom-left-radius: 32px;
+  border-bottom-right-radius: 32px;
+  box-shadow: 0 2px 26px 0 rgba(40,40,53,0.17);
+}

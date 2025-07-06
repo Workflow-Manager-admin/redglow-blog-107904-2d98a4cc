@@ -82,12 +82,12 @@ function BlogList() {
     <div style={{ padding: '0', background: 'var(--bg-primary)' }}>
       {/* Welcome Message */}
       <section
-        className={`soft-fadein-section${!loadingWelcome && show ? ' visible' : ''}`}
+        className={`soft-fadein-section hero-gradient${!loadingWelcome && show ? ' visible' : ''}`}
         style={{
           paddingTop: '2.7rem',
           paddingBottom: '2rem',
-          textAlign: 'center',
-          background: 'var(--bg-secondary)',
+          textAlign: 'center'
+          // background removed; now provided via className for gradient
         }}
       >
         {loadingWelcome ? (

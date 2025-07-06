@@ -7,6 +7,7 @@ function Navbar({ theme, toggleTheme }) {
   /**
    * Navbar component: displays app logo/title, navigation links,
    * Login/Write button (depending on login state), and light/dark mode toggle.
+   * The dark mode toggle is now to the left of the Home button for better UX.
    */
 
   const [modalOpen, setModalOpen] = useState(false);
@@ -49,6 +50,23 @@ function Navbar({ theme, toggleTheme }) {
           BlogKavia
         </Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
+          {/* Theme Toggle Button to the left of Home */}
+          <button
+            className="theme-toggle"
+            onClick={toggleTheme}
+            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            style={{
+              background: 'var(--button-bg)',
+              color: 'var(--button-text)',
+              position: 'static', // ensures it sits inline, not absolute
+              marginRight: 0,
+              top: 'unset',
+              right: 'unset',
+              order: 0,
+            }}
+          >
+            {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
+          </button>
           <Link
             to="/"
             style={{
@@ -60,12 +78,12 @@ function Navbar({ theme, toggleTheme }) {
               background: 'none',
               border: 'none',
               textDecoration: 'none',
-              fontSize: '1rem'
+              fontSize: '1rem',
+              order: 1,
             }}
           >
             Home
           </Link>
-
           {/* Dynamic Button Area: Login or Write */}
           {authUser ? (
             <>
@@ -100,7 +118,7 @@ function Navbar({ theme, toggleTheme }) {
                 aria-label="Log out"
               >Logout</button>
               {/* Optionally, show current username */}
-              <span style={{ 
+              <span style={{
                 marginLeft: '0.55rem', color: 'var(--text-secondary)', fontWeight: 400, fontSize: '0.97rem'
               }}>
                 {authUser.username}
@@ -124,15 +142,6 @@ function Navbar({ theme, toggleTheme }) {
               Login
             </button>
           )}
-          {/* Theme Toggle Button */}
-          <button
-            className="theme-toggle"
-            onClick={toggleTheme}
-            aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            style={{ background: 'var(--button-bg)', color: 'var(--button-text)' }}
-          >
-            {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-          </button>
         </div>
       </nav>
       <LoginModal

@@ -148,6 +148,18 @@
 .quickblog-logo-group .navbar-brand-text {
   transition: transform 0.28s cubic-bezier(0.4,0,0.2,1), color 0.24s;
 }
+
+/* High-contrast brand text color in dark mode for Navbar logo/text */
+[data-theme="dark"] .navbar-brand-text {
+  color: #fffafa !important;
+  text-shadow: 0 1px 10px #222, 0 1px 1px rgba(44,44,53,.24); /* add soft glow for glow/contrast */
+}
+
+/* Default brand text color for light mode, maybe slightly darker for clarity */
+.navbar-brand-text {
+  color: #282c34 !important;
+}
+
 .quickblog-logo-group {
   transition: transform 0.28s cubic-bezier(0.4,0,0.2,1);
   will-change: transform;
@@ -259,3 +271,25 @@
   border-bottom-right-radius: 32px;
   box-shadow: 0 2px 26px 0 rgba(40,40,53,0.17);
 }
+
+/* ===== Footer Styles for Dark Mode ===== */
+
+/* Target plain <footer> tag or add a class for global footer styles */
+footer {
+  transition: background 0.32s, color 0.22s;
+}
+
+/* Light mode: existing styles will apply. */
+
+[data-theme="dark"] footer {
+  background: #2D2D36 !important;  /* deep dark gray */
+  color: #F2F2F6 !important; /* offwhite/very light blue */
+  border-top: 1px solid #404040 !important;
+  box-shadow: 0 -1px 6px rgba(20,20,40,0.15);
+}
+
+/* Subtle effect for link/secondary text in dark mode footer */
+[data-theme="dark"] footer a {
+  color: #61dafb !important;
+}
+

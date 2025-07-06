@@ -360,8 +360,7 @@ function BlogList() {
         className={`soft-fadein-section${!loadingFooter && show ? ' visible' : ''}`}
         style={{
           width: '100%',
-          background: '#f8f9fa',
-          color: '#61dafb',
+          /* Remove hardcoded background/color so CSS handles both themes */
           textAlign: 'center',
           padding: '1.3rem 0 1rem',
           fontWeight: 'normal',

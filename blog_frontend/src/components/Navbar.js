@@ -73,7 +73,7 @@ function Navbar({ theme, toggleTheme }) {
             </span>
             <span
               style={{
-                color: '#282c34',
+                // Remove direct color assignment so CSS applies based on theme
                 fontWeight: 700,
                 fontSize: '1.5rem',
                 letterSpacing: '.03em',

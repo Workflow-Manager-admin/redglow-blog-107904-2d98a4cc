@@ -132,7 +132,12 @@ function BlogDetail() {
             fontSize: '1.05rem',
             color: 'var(--text-secondary)'
           }}>
-            <span style={{fontWeight: 600}}>
+            <span style={{
+              fontWeight: 600,
+              color: '#61dafb',
+              textAlign: 'right',
+              fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif'
+            }}>
               By {post.author}
             </span>
             <span style={{

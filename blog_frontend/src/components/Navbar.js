@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import LoginModal from './LoginModal';
 
@@ -13,6 +13,14 @@ function Navbar({ theme, toggleTheme }) {
   const [modalOpen, setModalOpen] = useState(false);
   const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
+
+  // Animation: Control mount state for entrance effect
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // Set mounted to true after first render to trigger the animation
+    setMounted(true);
+  }, []);
 
   // On production, user info would be managed globally or via context
   const handleLogin = (userObj) => {
@@ -32,7 +40,7 @@ function Navbar({ theme, toggleTheme }) {
   return (
     <>
       <nav
-        className="navbar"
+        className={`navbar navbar-animated${mounted ? " navbar-animated--mounted" : ""}`}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -157,6 +165,12 @@ function Navbar({ theme, toggleTheme }) {
         onClose={() => setModalOpen(false)}
         onLogin={handleLogin}
       />
+      {/* Inline style for demo/preview if CSS file isn't loaded */}
+      <style>
+        {`
+        /* No-op: styles moved to App.css or main CSS */
+        `}
+      </style>
     </>
   );
 }

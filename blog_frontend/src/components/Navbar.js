@@ -83,7 +83,7 @@ function Navbar({ theme, toggleTheme }) {
               }}
               className="navbar-brand-text"
             >
-              QuickBlog
+              EchoPages
             </span>
           </span>
         </Link>

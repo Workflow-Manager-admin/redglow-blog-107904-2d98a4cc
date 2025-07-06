@@ -170,3 +170,53 @@
     font-size: 1.1rem !important;
   }
 }
+
+/* ========= Skeleton Loader + Fade-In Styles ========= */
+.skeleton-loader {
+  background: linear-gradient(
+    90deg,
+    var(--bg-secondary) 25%,
+    #ececec 40%,
+    var(--bg-secondary) 65%
+  );
+  background-size: 300% 100%;
+  animation: skeleton-loading 1.14s cubic-bezier(0.4,0,0.2,1) infinite;
+  position: relative;
+  min-height: 1em;
+  opacity: 1;
+  pointer-events: none;
+}
+[data-theme="dark"] .skeleton-loader {
+  background: linear-gradient(
+    90deg,
+    #23252b 25%,
+    #31333b 40%,
+    #23252b 65%
+  );
+}
+@keyframes skeleton-loading {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+.skeleton-shimmer {
+  display: none; /* For future extensibility. */
+}
+.skeleton-loader > *:not(.skeleton-shimmer) {
+  opacity: 0;
+}
+
+.soft-fadein-section {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.62s cubic-bezier(0.34,0.03,0.14,0.99), transform 0.62s cubic-bezier(0.34,0.03,0.14,0.99);
+  will-change: opacity, transform;
+}
+.soft-fadein-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+/* End skeleton styles */

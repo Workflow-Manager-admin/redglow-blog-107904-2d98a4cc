@@ -60,10 +60,10 @@ function Navbar({ theme, toggleTheme }) {
           style={{
             textDecoration: 'none',
           }}
-          className="navbar-logo-link"
+          className="navbar-logo-link group-hover-zoom"
         >
-          <span style={{
-            display: "flex",
+          <span className="quickblog-logo-group" style={{
+            display: "inline-flex",
             alignItems: "center",
             gap: ".70rem",
             fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',

@@ -46,8 +46,16 @@ function Navbar({ theme, toggleTheme }) {
         }}
       >
         {/* Home/Logo */}
-        <Link to="/" style={{ textDecoration: 'none', color: 'var(--text-primary)', fontWeight: 700, fontSize: '1.5rem', letterSpacing: '.03em' }}>
-          BlogKavia
+        <Link to="/" style={{
+          textDecoration: 'none',
+          color: '#282c34',
+          fontWeight: 700,
+          fontSize: '1.5rem',
+          letterSpacing: '.03em',
+          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+          textAlign: 'center'
+        }}>
+          QuickBlogs
         </Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
           {/* Theme Toggle Button to the left of Home */}

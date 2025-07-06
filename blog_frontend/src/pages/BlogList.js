@@ -61,7 +61,7 @@ function BlogList() {
           fontSize: '2.6rem', fontWeight: 800, margin: '0 auto 0.65rem',
           color: '#e63946', letterSpacing: '.01em'
         }}>
-          Welcome to Kavia Blog
+          Welcome to QuickBlogS
         </h1>
         <p style={{
           color: 'var(--text-primary)', fontSize: '1.19rem', fontWeight: 500, maxWidth: 520,

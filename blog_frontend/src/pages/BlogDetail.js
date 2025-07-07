@@ -493,7 +493,7 @@ function BlogDetail() {
             style={iconStyle}
           >
             <img
-              src="https://your-domain.com/facebook.png"
+              src="/images/facebook.png"
               alt="Facebook"
               style={{ width: 27, height: 27, display: "block" }}
             />
@@ -507,7 +507,7 @@ function BlogDetail() {
             style={iconStyle}
           >
             <img
-              src="https://your-domain.com/instagram.png"
+              src="/images/instagram.png"
               alt="Instagram"
               style={{ width: 27, height: 27, display: "block" }}
             />
@@ -521,7 +521,7 @@ function BlogDetail() {
             style={iconStyle}
           >
             <img
-              src="https://your-domain.com/youtube.png"
+              src="/images/youtube.png"
               alt="YouTube"
               style={{ width: 27, height: 27, display: "block" }}
             />

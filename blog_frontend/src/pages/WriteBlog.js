@@ -141,7 +141,7 @@ function WriteBlog({ user }) {
           />
           {/* Icon image as button */}
           <img
-            src="/upload_icon.png"
+            src="/images/upload_icon.png"
             alt="Upload"
             title="Attach Image"
             tabIndex={0}

@@ -184,7 +184,7 @@ function BlogCard({ post, onClick, contentRich }) {
                 alignItems: "center", justifyContent: "center",
                 boxShadow: "0 1px 6px rgba(230,57,70,0.10)"
               }}>
-              <img src="/facebook.png" alt="Facebook" style={{ width: 18, height: 18, display: "block" }} />
+              <img src="/images/facebook.png" alt="Facebook" style={{ width: 18, height: 18, display: "block" }} />
             </a>
             <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" tabIndex={-1}
               title="Share on Instagram"
@@ -194,7 +194,7 @@ function BlogCard({ post, onClick, contentRich }) {
                 alignItems: "center", justifyContent: "center",
                 boxShadow: "0 1px 6px rgba(230,57,70,0.10)"
               }}>
-              <img src="/instagram.png" alt="Instagram" style={{ width: 18, height: 18, display: "block" }} />
+              <img src="/images/instagram.png" alt="Instagram" style={{ width: 18, height: 18, display: "block" }} />
             </a>
             <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" tabIndex={-1}
               title="Share on YouTube"
@@ -204,7 +204,7 @@ function BlogCard({ post, onClick, contentRich }) {
                 alignItems: "center", justifyContent: "center",
                 boxShadow: "0 1px 6px rgba(230,57,70,0.10)"
               }}>
-              <img src="/youtube.png" alt="YouTube" style={{ width: 18, height: 18, display: "block" }} />
+              <img src="/images/youtube.png" alt="YouTube" style={{ width: 18, height: 18, display: "block" }} />
             </a>
           </span>
         </div>

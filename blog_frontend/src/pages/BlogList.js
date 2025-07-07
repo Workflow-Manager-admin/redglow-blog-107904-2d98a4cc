@@ -1,7 +1,9 @@
+// PUBLIC_INTERFACE
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BlogCard from '../components/BlogCard';
 import SkeletonLoader from '../components/SkeletonLoader';
+import HeroSection from '../components/HeroSection';
 
 // PUBLIC_INTERFACE
 function BlogList() {
@@ -131,12 +133,12 @@ function BlogList() {
   // Modern, content-rich grid layout below
   return (
     <div style={{ padding: '0', background: 'var(--bg-primary)' }}>
-      {/* Welcome, Search, Categories (unchanged: see above) */}
-      {/* ...SNIP... */}
-      {/* Use ellipsis here for brevity, rest of the sections stay untouched except blog grid */}
+      {/* Hero section: visually introduces site; sits above everything else */}
+      <HeroSection />
 
       {/* --- CARDS GRID IMPROVED BELOW --- */}
       <section
+        id="blog-grid"
         className={`soft-fadein-section${!loadingGrid && show ? ' visible' : ''}`}
         style={{
           maxWidth: 1150,

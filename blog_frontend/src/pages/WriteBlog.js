@@ -127,13 +127,45 @@ function WriteBlog({ user }) {
         </div>
         {/* Image Upload */}
         <label style={{ fontWeight: 700, fontSize: "1.08rem", marginTop: 5 }}>Attach Feature Image:</label>
-        <input
-          type="file"
-          accept="image/*"
-          ref={fileInputRef}
-          onChange={handleImageChange}
-          style={{ marginBottom: imagePreviewUrl ? 0 : 15 }}
-        />
+        <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: imagePreviewUrl ? 0 : 15 }}>
+          {/* Hidden file input */}
+          <input
+            type="file"
+            accept="image/*"
+            ref={fileInputRef}
+            onChange={handleImageChange}
+            style={{
+              display: "none"
+            }}
+            id="feature-image-input"
+          />
+          {/* Icon image as button */}
+          <img
+            src="/upload_icon.png"
+            alt="Upload"
+            title="Attach Image"
+            tabIndex={0}
+            onClick={() => fileInputRef.current && fileInputRef.current.click()}
+            onKeyPress={e => {
+              if (e.key === "Enter" || e.key === " ") {
+                fileInputRef.current && fileInputRef.current.click();
+              }
+            }}
+            style={{
+              width: 38,
+              height: 38,
+              cursor: "pointer",
+              borderRadius: "7px",
+              border: "1.5px solid var(--border-color)",
+              background: "#fff",
+              transition: "box-shadow 0.17s, transform 0.17s",
+              boxShadow: "0 2px 8px rgba(230,57,70,0.08)",
+              outline: "none"
+            }}
+            aria-label="Attach feature image"
+          />
+          <span style={{ fontSize: 13, color: "var(--text-secondary)", opacity: 0.61 }}>(JPEG/PNG)</span>
+        </div>
         {imagePreviewUrl && (
           <img
             src={imagePreviewUrl}

@@ -1,5 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import TextEditor from "../components/TextEditor";
 
 /**
  * PUBLIC_INTERFACE
@@ -29,14 +30,9 @@ function WriteBlog({ user }) {
     reader.readAsDataURL(file);
   }
 
-  // Rich Text Editor commands
-  function format(command) {
-    document.execCommand(command, false, null);
-  }
-
-  function handleInput(e) {
-    setBodyHtml(e.currentTarget.innerHTML);
-  }
+  const handleEditorContentChange = (html) => {
+    setBodyHtml(html);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -78,19 +74,6 @@ function WriteBlog({ user }) {
       setFeedback(err.message || "Error! Could not submit blog.");
       setSubmitting(false);
     }
-  };
-
-  // Editor toolbar button styles
-  const btnStyle = {
-    background: "#e6e6e6",
-    color: "#444",
-    border: "1px solid #ccc",
-    borderRadius: "5px",
-    margin: "0 5px",
-    padding: "2px 10px",
-    fontSize: "1rem",
-    cursor: "pointer",
-    fontWeight: 700
   };
 
   return (
@@ -160,30 +143,9 @@ function WriteBlog({ user }) {
         )}
         {/* Rich Text Editor */}
         <label style={{ fontWeight: 700, fontSize: "1.08rem" }}>Blog Content:</label>
-        <div style={{ marginBottom: 7 }}>
-          <button type="button" style={btnStyle} onClick={() => format("bold")} title="Bold"><b>B</b></button>
-          <button type="button" style={btnStyle} onClick={() => format("italic")} title="Italic"><i>I</i></button>
-          <button type="button" style={btnStyle} onClick={() => format("underline")} title="Underline"><u>U</u></button>
-        </div>
-        <div
-          contentEditable
-          suppressContentEditableWarning
-          aria-label="Blog Content"
-          style={{
-            background: "#fff",
-            color: "#23242b",
-            border: "1.5px solid var(--border-color)",
-            minHeight: "9.5rem",
-            borderRadius: 8,
-            padding: "0.86rem 1rem",
-            fontSize: "1.07rem",
-            marginBottom: 18,
-            outline: "none",
-            maxHeight: 290,
-            overflowY: "auto"
-          }}
-          onInput={handleInput}
-          dangerouslySetInnerHTML={{ __html: bodyHtml }}
+        <TextEditor
+          initialContent={bodyHtml}
+          onContentChange={handleEditorContentChange}
         />
         <button
           type="submit"

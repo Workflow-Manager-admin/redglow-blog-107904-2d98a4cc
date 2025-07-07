@@ -1,5 +1,6 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import TextEditor from "../components/TextEditor";
 
 // PUBLIC_INTERFACE
 /**
@@ -16,17 +17,10 @@ function BlogEditor({ currentUser }) {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [successMsg, setSuccessMsg] = useState("");
-  const contentRef = useRef();
   const navigate = useNavigate();
 
   // Use current date as ISO formatted date string
   const todayStr = new Date().toISOString().slice(0, 10);
-
-  // Handle simple formatting commands for selection
-  const applyFormatting = (cmd) => {
-    document.execCommand(cmd, false);
-    setContent(contentRef.current.innerHTML);
-  };
 
   // Images: Convert file to base64 for preview and POST
   function handleImageChange(e) {
@@ -58,7 +52,7 @@ function BlogEditor({ currentUser }) {
     formData.append("title", title);
     formData.append("author", authorName || (currentUser && currentUser.username) || "");
     formData.append("date", todayStr);
-    formData.append("content", contentRef.current.innerHTML || content);
+    formData.append("content", content);
     if (image) formData.append("image", image);
 
     // Retrieve JWT (assume in localStorage for demo)
@@ -86,12 +80,6 @@ function BlogEditor({ currentUser }) {
     } finally {
       setSubmitting(false);
     }
-  }
-
-  // Keep content state synced with visual editor
-  function handleContentInput() {
-    // Update content state as typed; ensure no reversal logic
-    setContent(contentRef.current.innerHTML);
   }
 
   return (
@@ -185,35 +173,7 @@ function BlogEditor({ currentUser }) {
         {/* Rich Text Editor */}
         <div>
           <label style={{ ...labelStyle, marginBottom: 8 }}>Blog Details</label>
-          {/* Formatting toolbar */}
-          <div style={{
-            display: "flex",
-            gap: 10,
-            marginBottom: 7,
-            flexWrap: "wrap"
-          }}>
-            <button type="button" title="Bold" onClick={() => applyFormatting("bold")} style={toolBtnStyle}><b>B</b></button>
-            <button type="button" title="Italic" onClick={() => applyFormatting("italic")} style={toolBtnStyle}><i>I</i></button>
-            <button type="button" title="Underline" onClick={() => applyFormatting("underline")} style={toolBtnStyle}><u>U</u></button>
-          </div>
-          <div
-            contentEditable
-            ref={contentRef}
-            style={{
-              minHeight: 120,
-              border: "1.5px solid var(--border-color)",
-              borderRadius: 7,
-              fontSize: 17,
-              padding: "1.19rem 1rem",
-              background: "var(--bg-secondary)",
-              color: "var(--text-primary)",
-              outline: "none"
-            }}
-            aria-label="Blog content"
-            onInput={handleContentInput}
-            suppressContentEditableWarning={true}
-            tabIndex={0}
-          >{content}</div>
+          <TextEditor content={content} setContent={setContent} />
         </div>
         {error && (
           <div style={{ color: "#e63946", fontWeight: 600, marginBottom: 1 }}>{error}</div>

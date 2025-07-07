@@ -1,0 +1,51 @@
+.text-editor-toolbar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.text-editor-toolbar button {
+  background: #e6e6e6;
+  color: #444;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0 5px 6px 0;
+  padding: 2px 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.18s, color 0.22s;
+}
+
+.text-editor-toolbar button.active,
+.text-editor-toolbar button:active.active {
+  /* Accent: highlight buttons when active */
+  background: #e63946 !important;
+  color: #fff !important;
+  border-color: #c7323d;
+  box-shadow: 0 1px 6px rgba(230,57,70,0.10);
+}
+
+.text-editor-toolbar button:focus {
+  outline: 2px solid #e63946;
+}
+
+.text-editor-content {
+  background: #fff;
+  color: #23242b;
+  border: 1.5px solid var(--border-color);
+  min-height: 9.3rem;
+  border-radius: 8px;
+  padding: 0.82rem 1rem;
+  font-size: 1.08rem;
+  outline: none;
+  max-height: 290px;
+  overflow-y: auto;
+}
+
+/* Support dark mode for content area */
+[data-theme='dark'] .text-editor-content {
+  background: #23242b;
+  color: #faf7fa;
+  border-color: #31333b;
+}

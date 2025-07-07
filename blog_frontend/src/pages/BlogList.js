@@ -355,6 +355,103 @@ function BlogList() {
         )}
       </section>
 
+      {/* SOCIAL MEDIA ICONS: Consistent with BlogDetail.js */}
+      <section style={{margin: '2.5rem auto 1.4rem auto', textAlign: 'center'}}>
+        <span style={{
+          display: 'block',
+          fontWeight: 600,
+          fontSize: '1.09rem',
+          marginBottom: 10,
+          color: 'var(--text-primary)'
+        }}>Follow us:</span>
+        <div style={{display: 'flex', justifyContent: 'center', gap: 20}}>
+          <a
+            href="https://facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Our Facebook"
+            aria-label="Visit Facebook"
+            style={{
+              background: '#e63946',
+              color: '#fff',
+              fontSize: 27,
+              width: 44,
+              height: 44,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '50%',
+              marginRight: 0,
+              boxShadow: '0 2px 8px rgba(230,57,70,0.13)',
+              cursor: 'pointer',
+              userSelect: 'none'
+            }}
+          >
+            <img
+              src="/facebook.png"
+              alt="Facebook"
+              style={{ width: 27, height: 27, display: "block" }}
+            />
+          </a>
+          <a
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Our Instagram"
+            aria-label="Visit Instagram"
+            style={{
+              background: '#e63946',
+              color: '#fff',
+              fontSize: 27,
+              width: 44,
+              height: 44,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '50%',
+              marginRight: 0,
+              boxShadow: '0 2px 8px rgba(230,57,70,0.13)',
+              cursor: 'pointer',
+              userSelect: 'none'
+            }}
+          >
+            <img
+              src="/instagram.png"
+              alt="Instagram"
+              style={{ width: 27, height: 27, display: "block" }}
+            />
+          </a>
+          <a
+            href="https://youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Our YouTube"
+            aria-label="Visit YouTube"
+            style={{
+              background: '#e63946',
+              color: '#fff',
+              fontSize: 27,
+              width: 44,
+              height: 44,
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: '50%',
+              marginRight: 0,
+              boxShadow: '0 2px 8px rgba(230,57,70,0.13)',
+              cursor: 'pointer',
+              userSelect: 'none'
+            }}
+          >
+            <img
+              src="/youtube.png"
+              alt="YouTube"
+              style={{ width: 27, height: 27, display: "block" }}
+            />
+          </a>
+        </div>
+      </section>
+
       {/* Footer removed: now globally handled in App.js */}
     </div>
   );

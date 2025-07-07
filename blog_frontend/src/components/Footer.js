@@ -103,7 +103,7 @@ function Footer() {
               style={iconBtnStyle}
             >
               <img
-                src="/facebook.png"
+                src="https://your-domain.com/facebook.png"
                 alt="Facebook"
                 style={{ width: 24, height: 24, display: "block" }}
               />
@@ -116,7 +116,7 @@ function Footer() {
               style={iconBtnStyle}
             >
               <img
-                src="/instagram.png"
+                src="https://your-domain.com/instagram.png"
                 alt="Instagram"
                 style={{ width: 24, height: 24, display: "block" }}
               />
@@ -129,7 +129,7 @@ function Footer() {
               style={iconBtnStyle}
             >
               <img
-                src="/youtube.png"
+                src="https://your-domain.com/youtube.png"
                 alt="YouTube"
                 style={{ width: 24, height: 24, display: "block" }}
               />

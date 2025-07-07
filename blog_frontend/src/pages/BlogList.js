@@ -355,30 +355,7 @@ function BlogList() {
         )}
       </section>
 
-      {/* Footer */}
-      <footer
-        className={`soft-fadein-section${!loadingFooter && show ? ' visible' : ''}`}
-        style={{
-          width: '100%',
-          /* Remove hardcoded background/color so CSS handles both themes */
-          textAlign: 'center',
-          padding: '1.3rem 0 1rem',
-          fontWeight: 'normal',
-          fontSize: '1.07rem',
-          letterSpacing: '.01em',
-          borderTop: '1px solid var(--border-color)',
-          marginTop: 0,
-          fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
-          fontStyle: 'normal',
-          textDecoration: 'none'
-        }}
-      >
-        {loadingFooter ? (
-          <SkeletonLoader width="50%" height="2em" style={{ borderRadius: 8, margin: "0 auto" }} />
-        ) : (
-          <>© 2025 EchoPages. All rights reserved. | Crafted with kavia ai for readers.</>
-        )}
-      </footer>
+      {/* Footer removed: now globally handled in App.js */}
     </div>
   );
 }

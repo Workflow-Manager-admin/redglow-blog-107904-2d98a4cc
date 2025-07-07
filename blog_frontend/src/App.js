@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import BlogList from './pages/BlogList';
 import BlogDetail from './pages/BlogDetail';
 import WriteBlog from './pages/WriteBlog';
@@ -57,6 +58,7 @@ function App() {
             <Route path="/write" element={<WriteBlog user={authUser} />} />
           </Routes>
         </main>
+        <Footer />
       </div>
     </Router>
   );

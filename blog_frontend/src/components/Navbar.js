@@ -3,39 +3,21 @@ import { Link, useNavigate } from 'react-router-dom';
 import LoginModal from './LoginModal';
 import Logo from './Logo';
 
-// PUBLIC_INTERFACE
-function Navbar({ theme, toggleTheme }) {
-  /**
-   * Navbar component: displays app logo/title, navigation links,
-   * Login/Write button (depending on login state), and light/dark mode toggle.
-   * The dark mode toggle is now to the left of the Home button for better UX.
-   */
-
+/**
+ * Navbar component: displays navigation, logo/title, and user actions.
+ * Auth state is now lifted (passed via props).
+ */
+function Navbar({ theme, toggleTheme, user, onLogin, onLogout }) {
   const [modalOpen, setModalOpen] = useState(false);
-  const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
 
   // Animation: Control mount state for entrance effect
   const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
-  useEffect(() => {
-    // Set mounted to true after first render to trigger the animation
-    setMounted(true);
-  }, []);
-
-  // On production, user info would be managed globally or via context
-  const handleLogin = (userObj) => {
-    setAuthUser(userObj); // userObj: { username }
-  };
-
-  const handleLogout = () => {
-    setAuthUser(null);
-  };
-
+  // 'Write' option after login; triggers routing to /write
   function handleWriteClick() {
-    navigate('/write'); // This route/page can be implemented in future
-    // For demo, you might alert or route to a future post creation page
-    // alert('Write a new blog post (stub)');
+    navigate('/write');
   }
 
   return (
@@ -57,9 +39,7 @@ function Navbar({ theme, toggleTheme }) {
         {/* Logo + Brand */}
         <Link
           to="/"
-          style={{
-            textDecoration: 'none',
-          }}
+          style={{ textDecoration: 'none' }}
           className="navbar-logo-link group-hover-zoom"
         >
           <span className="quickblog-logo-group" style={{
@@ -73,7 +53,6 @@ function Navbar({ theme, toggleTheme }) {
             </span>
             <span
               style={{
-                // Remove direct color assignment so CSS applies based on theme
                 fontWeight: 700,
                 fontSize: '1.5rem',
                 letterSpacing: '.03em',
@@ -82,13 +61,12 @@ function Navbar({ theme, toggleTheme }) {
                 userSelect: "none"
               }}
               className="navbar-brand-text"
-            >
-              EchoPages
+            >EchoPages
             </span>
           </span>
         </Link>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1.2rem' }}>
-          {/* Theme Toggle Button to the left of Home */}
+          {/* Theme Toggle Button */}
           <button
             className="theme-toggle"
             onClick={toggleTheme}
@@ -96,7 +74,7 @@ function Navbar({ theme, toggleTheme }) {
             style={{
               background: 'var(--button-bg)',
               color: 'var(--button-text)',
-              position: 'static', // ensures it sits inline, not absolute
+              position: 'static',
               marginRight: 0,
               top: 'unset',
               right: 'unset',
@@ -122,8 +100,8 @@ function Navbar({ theme, toggleTheme }) {
           >
             Home
           </Link>
-          {/* Dynamic Button Area: Login or Write */}
-          {authUser ? (
+          {/* Dynamic Button Area: Login OR Write */}
+          {user ? (
             <>
               <button
                 style={{
@@ -137,11 +115,12 @@ function Navbar({ theme, toggleTheme }) {
                   cursor: 'pointer'
                 }}
                 onClick={handleWriteClick}
+                aria-label="Write new blog"
               >
                 Write
               </button>
               <button
-                onClick={handleLogout}
+                onClick={onLogout}
                 style={{
                   background: 'var(--button-bg)',
                   color: 'var(--button-text)',
@@ -155,11 +134,10 @@ function Navbar({ theme, toggleTheme }) {
                 }}
                 aria-label="Log out"
               >Logout</button>
-              {/* Optionally, show current username */}
               <span style={{
                 marginLeft: '0.55rem', color: 'var(--text-secondary)', fontWeight: 400, fontSize: '0.97rem'
               }}>
-                {authUser.username}
+                {user.username}
               </span>
             </>
           ) : (
@@ -185,9 +163,15 @@ function Navbar({ theme, toggleTheme }) {
       <LoginModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onLogin={handleLogin}
+        onLogin={
+          user ? undefined : // Already logged in, do nothing
+            (loginObj) => {
+              setModalOpen(false);
+              if (onLogin) onLogin(loginObj);
+            }
+        }
       />
-      {/* Inline style for demo/preview if CSS file isn't loaded */}
+      {/* Style override placeholder */}
       <style>
         {`
         /* No-op: styles moved to App.css or main CSS */

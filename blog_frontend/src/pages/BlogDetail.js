@@ -231,11 +231,49 @@ function BlogDetail() {
           color: 'var(--text-primary)'
         }}>Share this post:</span>
         <div style={{display: 'flex', justifyContent: 'center', gap: 20}}>
-          {/* Social icons are visual only (no real share functionality) */}
-          <span style={iconStyle} title="Share on Twitter" role="img" aria-label="Twitter">🐦</span>
-          <span style={iconStyle} title="Share on Facebook" role="img" aria-label="Facebook">📘</span>
-          <span style={iconStyle} title="Share on LinkedIn" role="img" aria-label="LinkedIn">💼</span>
-          <span style={iconStyle} title="Copy link" role="img" aria-label="Copy link">🔗</span>
+          {/* Social icons as images from public folder */}
+          <a
+            href="https://facebook.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Share on Facebook"
+            aria-label="Share on Facebook"
+            style={iconStyle}
+          >
+            <img
+              src="/facebook.png"
+              alt="Facebook"
+              style={{ width: 27, height: 27, display: "block" }}
+            />
+          </a>
+          <a
+            href="https://instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Share on Instagram"
+            aria-label="Share on Instagram"
+            style={iconStyle}
+          >
+            <img
+              src="/instagram.png"
+              alt="Instagram"
+              style={{ width: 27, height: 27, display: "block" }}
+            />
+          </a>
+          <a
+            href="https://youtube.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Share on YouTube"
+            aria-label="Share on YouTube"
+            style={iconStyle}
+          >
+            <img
+              src="/youtube.png"
+              alt="YouTube"
+              style={{ width: 27, height: 27, display: "block" }}
+            />
+          </a>
         </div>
       </section>
       {/* Back link */}

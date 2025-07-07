@@ -94,46 +94,43 @@ function Footer() {
             style={{ display: "flex", gap: 12, marginTop: 1 }}
           >
             <a
-              href="https://twitter.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
-              style={iconBtnStyle}
-            >
-              <span role="img" aria-label="Twitter">
-                🐦
-              </span>
-            </a>
-            <a
               href="https://facebook.com/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
               style={iconBtnStyle}
             >
-              <span role="img" aria-label="Facebook">
-                📘
-              </span>
+              <img
+                src="/facebook.png"
+                alt="Facebook"
+                style={{ width: 24, height: 24, display: "block" }}
+              />
             </a>
             <a
-              href="https://linkedin.com/"
+              href="https://instagram.com/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              aria-label="Instagram"
               style={iconBtnStyle}
             >
-              <span role="img" aria-label="LinkedIn">
-                💼
-              </span>
+              <img
+                src="/instagram.png"
+                alt="Instagram"
+                style={{ width: 24, height: 24, display: "block" }}
+              />
             </a>
             <a
-              href="mailto:hello@echopages.com"
-              aria-label="Contact email"
+              href="https://youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
               style={iconBtnStyle}
             >
-              <span role="img" aria-label="Email">
-                ✉️
-              </span>
+              <img
+                src="/youtube.png"
+                alt="YouTube"
+                style={{ width: 24, height: 24, display: "block" }}
+              />
             </a>
           </nav>
         </section>

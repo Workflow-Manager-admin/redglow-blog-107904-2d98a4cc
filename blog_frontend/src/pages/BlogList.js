@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import BlogCard from '../components/BlogCard';
 import SkeletonLoader from '../components/SkeletonLoader';
 import HeroSection from '../components/HeroSection';
+import CategoriesSection from '../components/CategoriesSection';
 
 // PUBLIC_INTERFACE
 function BlogList() {
@@ -20,7 +21,6 @@ function BlogList() {
    * - Category badge
    * - Social icons (if desired)
    */
-
   // Improved demo blog data: enrich with images, author, date for grid effect
   const allPosts = [
     {
@@ -79,6 +79,7 @@ function BlogList() {
     },
   ];
 
+  // Define top-level categories to display in the filter
   const CATEGORIES = ['All', 'Tech', 'LifeStyle', 'Finance'];
 
   const [loadingWelcome, setLoadingWelcome] = useState(true);
@@ -135,6 +136,14 @@ function BlogList() {
     <div style={{ padding: '0', background: 'var(--bg-primary)' }}>
       {/* Hero section: visually introduces site; sits above everything else */}
       <HeroSection />
+
+      {/* Categories Section for filtering */}
+      <CategoriesSection
+        categories={CATEGORIES}
+        currentCategory={category}
+        onSelect={setCategory}
+        loading={loadingCategories}
+      />
 
       {/* --- CARDS GRID IMPROVED BELOW --- */}
       <section

@@ -231,7 +231,10 @@ function BlogDetail() {
           color: 'var(--text-primary)'
         }}>Share this post:</span>
         <div style={{display: 'flex', justifyContent: 'center', gap: 20}}>
-          {/* Social icons as images from public folder */}
+          {/* Social icons as images from public folder.
+              To ensure compatibility in all React deployments (dev/prod), use process.env.PUBLIC_URL as prefix.
+              - '/facebook.png' becomes `${process.env.PUBLIC_URL}/facebook.png`
+          */}
           <a
             href="https://facebook.com/"
             target="_blank"
@@ -241,7 +244,7 @@ function BlogDetail() {
             style={iconStyle}
           >
             <img
-              src="/facebook.png"
+              src={`${process.env.PUBLIC_URL}/facebook.png`}
               alt="Facebook"
               style={{ width: 27, height: 27, display: "block" }}
             />
@@ -255,7 +258,7 @@ function BlogDetail() {
             style={iconStyle}
           >
             <img
-              src="/instagram.png"
+              src={`${process.env.PUBLIC_URL}/instagram.png`}
               alt="Instagram"
               style={{ width: 27, height: 27, display: "block" }}
             />
@@ -269,7 +272,7 @@ function BlogDetail() {
             style={iconStyle}
           >
             <img
-              src="/youtube.png"
+              src={`${process.env.PUBLIC_URL}/youtube.png`}
               alt="YouTube"
               style={{ width: 27, height: 27, display: "block" }}
             />

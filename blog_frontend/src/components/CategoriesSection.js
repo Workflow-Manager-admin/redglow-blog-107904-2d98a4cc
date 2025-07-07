@@ -46,7 +46,8 @@ function CategoriesSection({ categories, currentCategory, onSelect, loading }) {
             onClick={() => onSelect(cat)}
             style={{
               background: selected ? "#e63946" : "var(--bg-secondary)",
-              color: selected ? "#fff" : "#282c34",
+              // Use primary text color from theme when not selected for good contrast in both themes
+              color: selected ? "#fff" : "var(--text-primary)",
               fontWeight: selected ? 800 : 600,
               fontSize: "1.03rem",
               border: selected

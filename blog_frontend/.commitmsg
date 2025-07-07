@@ -1,0 +1,5 @@
+fix: Add and update social media image assets
+
+- Manually copied facebook.png, instagram.png, youtube.png, upload_icon.png to public/images for correct usage in BlogCard, BlogDetail, Footer, etc.
+- Ensures social media icon assets are present and accessible for all UI share/follow features.
+- Resolves missing image issues in deployed and development builds.

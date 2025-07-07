@@ -6,12 +6,21 @@ import Logo from "./Logo";
  * It includes: Logo/brand, tagline/description, and an accent call-to-action.
  * Uses a gradient background and adapts to light/dark themes.
  */
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 function HeroSection() {
+  // Manage appear animation state
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    // Slight delay to trigger CSS transition after mount
+    const timeout = setTimeout(() => setVisible(true), 10);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <section
-      className="hero-gradient"
+      className={`hero-gradient hero-fadein-section${visible ? " visible" : ""}`}
       style={{
         width: "100%",
         padding: "3.8rem 0 3.1rem 0",
@@ -160,7 +169,7 @@ function HeroSection() {
           </svg>
         </div>
       </div>
-      {/* Responsive CSS */}
+      {/* Responsive CSS and entrance/fadein class */}
       <style>
         {`
           @media (max-width: 870px) {
@@ -178,6 +187,19 @@ function HeroSection() {
               border-bottom-right-radius: 18px !important;
             }
             .navbar-brand-text { font-size: 1.21rem !important; }
+          }
+          /* Entrance animation for HeroSection */
+          .hero-fadein-section {
+            opacity: 0;
+            transform: translateY(32px);
+            transition:
+              opacity 0.7s cubic-bezier(.34,.03,.22,.93),
+              transform 0.7s cubic-bezier(.34,.03,.22,.93);
+            will-change: opacity, transform;
+          }
+          .hero-fadein-section.visible {
+            opacity: 1;
+            transform: translateY(0);
           }
         `}
       </style>

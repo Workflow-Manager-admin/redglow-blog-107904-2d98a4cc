@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 /**
  * Helper to format ISO date to friendly format (e.g., Jun 2024)
@@ -175,36 +176,62 @@ function BlogCard({ post, onClick, contentRich }) {
           </span>
           {/* Social icons (always, for demo) */}
           <span style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-            <a href="https://facebook.com/" target="_blank" rel="noopener noreferrer" tabIndex={-1}
+            <a
+              href="https://facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={-1}
               title="Share on Facebook"
               style={{
                 background: '#e63946',
                 borderRadius: 999,
-                width: 28, height: 28, display: "flex",
-                alignItems: "center", justifyContent: "center",
-                boxShadow: "0 1px 6px rgba(230,57,70,0.10)"
+                width: 28,
+                height: 28,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 1px 6px rgba(230,57,70,0.10)",
+                color: "#fff"
               }}>
-              <img src="/images/facebook.png" alt="Facebook" style={{ width: 18, height: 18, display: "block" }} />
+              <FaFacebookF size={16} />
             </a>
-            <a href="https://instagram.com/" target="_blank" rel="noopener noreferrer" tabIndex={-1}
+            <a
+              href="https://instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={-1}
               title="Share on Instagram"
               style={{
-                background: '#e63946', borderRadius: 999,
-                width: 28, height: 28, display: "flex",
-                alignItems: "center", justifyContent: "center",
-                boxShadow: "0 1px 6px rgba(230,57,70,0.10)"
+                background: '#e63946',
+                borderRadius: 999,
+                width: 28,
+                height: 28,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 1px 6px rgba(230,57,70,0.10)",
+                color: "#fff"
               }}>
-              <img src="/images/instagram.png" alt="Instagram" style={{ width: 18, height: 18, display: "block" }} />
+              <FaInstagram size={16} />
             </a>
-            <a href="https://youtube.com/" target="_blank" rel="noopener noreferrer" tabIndex={-1}
+            <a
+              href="https://youtube.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              tabIndex={-1}
               title="Share on YouTube"
               style={{
-                background: '#e63946', borderRadius: 999,
-                width: 28, height: 28, display: "flex",
-                alignItems: "center", justifyContent: "center",
-                boxShadow: "0 1px 6px rgba(230,57,70,0.10)"
+                background: '#e63946',
+                borderRadius: 999,
+                width: 28,
+                height: 28,
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                boxShadow: "0 1px 6px rgba(230,57,70,0.10)",
+                color: "#fff"
               }}>
-              <img src="/images/youtube.png" alt="YouTube" style={{ width: 18, height: 18, display: "block" }} />
+              <FaYoutube size={17} />
             </a>
           </span>
         </div>

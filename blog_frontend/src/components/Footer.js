@@ -1,5 +1,6 @@
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaYoutube } from "react-icons/fa";
 
 // PUBLIC_INTERFACE
 /**
@@ -102,11 +103,7 @@ function Footer() {
               aria-label="Facebook"
               style={iconBtnStyle}
             >
-              <img
-                src="/images/facebook.png"
-                alt="Facebook"
-                style={{ width: 24, height: 24, display: "block" }}
-              />
+              <FaFacebookF size={19} />
             </a>
             <a
               href="https://instagram.com/"
@@ -115,11 +112,7 @@ function Footer() {
               aria-label="Instagram"
               style={iconBtnStyle}
             >
-              <img
-                src="/images/instagram.png"
-                alt="Instagram"
-                style={{ width: 24, height: 24, display: "block" }}
-              />
+              <FaInstagram size={20} />
             </a>
             <a
               href="https://youtube.com/"
@@ -128,11 +121,7 @@ function Footer() {
               aria-label="YouTube"
               style={iconBtnStyle}
             >
-              <img
-                src="/images/youtube.png"
-                alt="YouTube"
-                style={{ width: 24, height: 24, display: "block" }}
-              />
+              <FaYoutube size={22} />
             </a>
           </nav>
         </section>

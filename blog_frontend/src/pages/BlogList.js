@@ -1,10 +1,10 @@
-// PUBLIC_INTERFACE
 import React, { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import BlogCard from '../components/BlogCard';
 import SkeletonLoader from '../components/SkeletonLoader';
 import HeroSection from '../components/HeroSection';
 import CategoriesSection from '../components/CategoriesSection';
+import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 // PUBLIC_INTERFACE
 function BlogList() {
@@ -336,11 +336,7 @@ function BlogList() {
               userSelect: 'none'
             }}
           >
-            <img
-              src="/images/facebook.png"
-              alt="Facebook"
-              style={{ width: 27, height: 27, display: "block" }}
-            />
+            <FaFacebookF size={22} />
           </a>
           <a
             href="https://instagram.com/"
@@ -364,11 +360,7 @@ function BlogList() {
               userSelect: 'none'
             }}
           >
-            <img
-              src="/images/instagram.png"
-              alt="Instagram"
-              style={{ width: 27, height: 27, display: "block" }}
-            />
+            <FaInstagram size={24} />
           </a>
           <a
             href="https://youtube.com/"
@@ -392,11 +384,7 @@ function BlogList() {
               userSelect: 'none'
             }}
           >
-            <img
-              src="/images/youtube.png"
-              alt="YouTube"
-              style={{ width: 27, height: 27, display: "block" }}
-            />
+            <FaYoutube size={26} />
           </a>
         </div>
       </section>

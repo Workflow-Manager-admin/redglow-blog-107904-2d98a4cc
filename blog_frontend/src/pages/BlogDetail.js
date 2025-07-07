@@ -1,5 +1,6 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { FaFacebookF, FaInstagram, FaYoutube } from 'react-icons/fa';
 
 /**
  * PUBLIC_INTERFACE
@@ -480,10 +481,6 @@ function BlogDetail() {
           color: 'var(--text-primary)'
         }}>Share this post:</span>
         <div style={{display: 'flex', justifyContent: 'center', gap: 20}}>
-          {/* Social icons as images from public folder.
-              To ensure compatibility in all React deployments (dev/prod), use process.env.PUBLIC_URL as prefix.
-              - '/facebook.png' becomes `${process.env.PUBLIC_URL}/facebook.png`
-          */}
           <a
             href="https://facebook.com/"
             target="_blank"
@@ -492,11 +489,7 @@ function BlogDetail() {
             aria-label="Share on Facebook"
             style={iconStyle}
           >
-            <img
-              src="/images/facebook.png"
-              alt="Facebook"
-              style={{ width: 27, height: 27, display: "block" }}
-            />
+            <FaFacebookF size={22} />
           </a>
           <a
             href="https://instagram.com/"
@@ -506,11 +499,7 @@ function BlogDetail() {
             aria-label="Share on Instagram"
             style={iconStyle}
           >
-            <img
-              src="/images/instagram.png"
-              alt="Instagram"
-              style={{ width: 27, height: 27, display: "block" }}
-            />
+            <FaInstagram size={24} />
           </a>
           <a
             href="https://youtube.com/"
@@ -520,11 +509,7 @@ function BlogDetail() {
             aria-label="Share on YouTube"
             style={iconStyle}
           >
-            <img
-              src="/images/youtube.png"
-              alt="YouTube"
-              style={{ width: 27, height: 27, display: "block" }}
-            />
+            <FaYoutube size={26} />
           </a>
         </div>
       </section>

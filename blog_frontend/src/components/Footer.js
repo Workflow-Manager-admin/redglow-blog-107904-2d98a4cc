@@ -1,4 +1,3 @@
-
 import Logo from "./Logo";
 import { Link } from "react-router-dom";
 
@@ -8,31 +7,12 @@ import { Link } from "react-router-dom";
  * Left: Logo, site name, description, social icons.
  * Right: Link groups (e.g., Links and Tags).
  */
-import React, { useEffect, useState } from "react";
-import { useEffect, useState } from "react";
-import Logo from "./Logo";
-import { Link } from "react-router-dom";
+import React from "react";
 
 // PUBLIC_INTERFACE
-/**
- * Footer: Responsive, accessible footer for every page.
- * Left: Logo, site name, description, social icons.
- * Right: Link groups (e.g., Links and Tags).
- * Now includes entrance animation (slide in from right).
- */
 function Footer() {
-  // Mounting logic for entrance animation
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    const timeout = setTimeout(() => setMounted(true), 300);
-    return () => clearTimeout(timeout);
-  }, []);
   return (
     <footer
-      className={
-        "footer-entrance" +
-        (mounted ? " footer-entrance--mounted" : "")
-      }
       style={{
         width: "100%",
         marginTop: 0,

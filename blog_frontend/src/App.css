@@ -376,61 +376,7 @@
   transition: background 0.34s cubic-bezier(0.3,0.1,0.5,1);
 }
 
-/* ==== Opposite entrance animation: Slide in from RIGHT for HeroSection, CategoriesSection, Footer ==== */
-@keyframes slideInRightFade {
-  0% {
-    opacity: 0.12;
-    transform: translateX(72px);
-  }
-  80% {
-    opacity: 0.95;
-    transform: translateX(-3px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* Hero Section entrance */
-.hero-section-entrance {
-  opacity: 0;
-  transform: translateX(70px);
-  transition: opacity 0.74s cubic-bezier(0.30,0.01,0,1), transform 0.74s cubic-bezier(0.29,0.01,0,1);
-  will-change: opacity, transform;
-}
-.hero-section-entrance--mounted {
-  animation: slideInRightFade 0.74s cubic-bezier(0.30,0.01,0,1) forwards;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Categories Section entrance */
-.categories-section-entrance {
-  opacity: 0;
-  transform: translateX(62px);
-  transition: opacity 0.61s cubic-bezier(0.27,0.01,0,1), transform 0.61s cubic-bezier(0.24,0.01,0,1);
-  will-change: opacity, transform;
-}
-.categories-section-entrance--mounted {
-  animation: slideInRightFade 0.61s cubic-bezier(0.27,0.01,0,1) forwards;
-  opacity: 1;
-  transform: translateX(0);
-}
-
-/* Footer entrance animation */
-.footer-entrance {
-  opacity: 0;
-  transform: translateX(54px);
-  transition: opacity 0.66s cubic-bezier(0.24,0.01,0,1), transform 0.66s cubic-bezier(0.23,0.08,0,1);
-  will-change: opacity, transform;
-}
-.footer-entrance--mounted {
-  animation: slideInRightFade 0.66s cubic-bezier(0.23,0.08,0,1) forwards;
-  opacity: 1;
-  transform: translateX(0);
-}
-
+/* [Entrance transition/animation CSS for HeroSection, CategoriesSection, and Footer has been removed—restored to pre-transition state] */
 
 /* Add a subtle contrast for dark mode */
 [data-theme="dark"] .hero-gradient {

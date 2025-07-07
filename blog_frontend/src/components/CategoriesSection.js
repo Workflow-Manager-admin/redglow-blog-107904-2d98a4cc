@@ -1,12 +1,4 @@
-/**
- * PUBLIC_INTERFACE
- * CategoriesSection renders filter buttons for blog categories.
- * Props:
- *   categories (array of strings): category names
- *   currentCategory (string): active/selected category
- *   onSelect (function): callback when a category is selected
- */
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 /**
  * PUBLIC_INTERFACE
@@ -17,16 +9,6 @@ import React, { useEffect, useState } from "react";
  *   onSelect (function): callback when a category is selected
  */
 function CategoriesSection({ categories, currentCategory, onSelect, loading }) {
-  // Mounting logic for entrance animation (slide in from right)
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    if (!loading) {
-      const timeout = setTimeout(() => setMounted(true), 100);
-      return () => clearTimeout(timeout);
-    }
-    setMounted(false);
-  }, [loading]);
-
   if (loading) {
     // Soft skeleton loader demo
     return (
@@ -45,10 +27,7 @@ function CategoriesSection({ categories, currentCategory, onSelect, loading }) {
   }
   return (
     <div
-      className={
-        "categories-section categories-section-entrance" +
-        (mounted ? " categories-section-entrance--mounted" : "")
-      }
+      className="categories-section"
       style={{
         display: "flex",
         gap: 17,

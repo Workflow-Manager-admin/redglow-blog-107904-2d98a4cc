@@ -90,6 +90,7 @@ function BlogEditor({ currentUser }) {
 
   // Keep content state synced with visual editor
   function handleContentInput() {
+    // Update content state as typed; ensure no reversal logic
     setContent(contentRef.current.innerHTML);
   }
 

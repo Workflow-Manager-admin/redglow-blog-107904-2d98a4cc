@@ -1,10 +1,10 @@
-.text-editor-toolbar {
+.toolbar {
   display: flex;
   gap: 6px;
   margin-bottom: 8px;
 }
 
-.text-editor-toolbar button {
+.toolbar button {
   background: #e6e6e6;
   color: #444;
   border: 1px solid #ccc;
@@ -14,19 +14,18 @@
   font-size: 1rem;
   cursor: pointer;
   font-weight: 700;
-  transition: background 0.18s, color 0.22s;
+  transition: background 0.18s, color 0.22s, border-color 0.18s;
 }
 
-.text-editor-toolbar button.active,
-.text-editor-toolbar button:active.active {
-  /* Accent: highlight buttons when active */
-  background: #e63946 !important;
-  color: #fff !important;
-  border-color: #c7323d;
+/* Active state: PreCISE #e63946 for both border-color and color */
+.toolbar button.active {
+  border-color: #e63946 !important;
+  color: #e63946 !important;
+  background: #fffafa !important;
   box-shadow: 0 1px 6px rgba(230,57,70,0.10);
 }
 
-.text-editor-toolbar button:focus {
+.toolbar button:focus {
   outline: 2px solid #e63946;
 }
 

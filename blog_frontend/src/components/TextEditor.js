@@ -71,31 +71,31 @@ function TextEditor({ initialContent = "", onContentChange }) {
 
   return (
     <div>
-      <div className="text-editor-toolbar" style={{ marginBottom: 6 }}>
+      <div className="toolbar" style={{ marginBottom: 6 }}>
         <button
           type="button"
-          className={active.bold ? "active" : ""}
+          className={active.bold ? 'active' : ''}
           title="Bold"
           aria-label="Bold"
-          onClick={() => handleFormat("bold")}
+          onClick={() => handleFormat('bold')}
         >
           <b>B</b>
         </button>
         <button
           type="button"
-          className={active.italic ? "active" : ""}
+          className={active.italic ? 'active' : ''}
           title="Italic"
           aria-label="Italic"
-          onClick={() => handleFormat("italic")}
+          onClick={() => handleFormat('italic')}
         >
           <i>I</i>
         </button>
         <button
           type="button"
-          className={active.underline ? "active" : ""}
+          className={active.underline ? 'active' : ''}
           title="Underline"
           aria-label="Underline"
-          onClick={() => handleFormat("underline")}
+          onClick={() => handleFormat('underline')}
         >
           <u>U</u>
         </button>

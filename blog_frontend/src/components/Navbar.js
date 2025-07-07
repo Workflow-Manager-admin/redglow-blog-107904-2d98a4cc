@@ -4,7 +4,7 @@ import LoginModal from './LoginModal';
 import Logo from './Logo';
 
 // PUBLIC_INTERFACE
-function Navbar({ theme, toggleTheme }) {
+function Navbar({ theme, toggleTheme, authUser, onLogin, onLogout }) {
   /**
    * Navbar component: displays app logo/title, navigation links,
    * Login/Write button (depending on login state), and light/dark mode toggle.
@@ -12,7 +12,6 @@ function Navbar({ theme, toggleTheme }) {
    */
 
   const [modalOpen, setModalOpen] = useState(false);
-  const [authUser, setAuthUser] = useState(null);
   const navigate = useNavigate();
 
   // Animation: Control mount state for entrance effect
@@ -23,19 +22,14 @@ function Navbar({ theme, toggleTheme }) {
     setMounted(true);
   }, []);
 
-  // On production, user info would be managed globally or via context
-  const handleLogin = (userObj) => {
-    setAuthUser(userObj); // userObj: { username }
-  };
-
-  const handleLogout = () => {
-    setAuthUser(null);
-  };
-
-  function handleWriteClick() {
-    navigate('/write'); // This route/page can be implemented in future
-    // For demo, you might alert or route to a future post creation page
-    // alert('Write a new blog post (stub)');
+  function handleWriteClick(e) {
+    if (e && e.metaKey) {
+      // Allow "Cmd+Click" to really open in new browser tab
+      window.open("/write", "_blank", "noopener,noreferrer");
+    } else {
+      // Open "Write" in a new internal tab in the app: simulate as "another route"
+      navigate("/write");
+    }
   }
 
   return (
@@ -96,7 +90,7 @@ function Navbar({ theme, toggleTheme }) {
             style={{
               background: 'var(--button-bg)',
               color: 'var(--button-text)',
-              position: 'static', // ensures it sits inline, not absolute
+              position: 'static',
               marginRight: 0,
               top: 'unset',
               right: 'unset',
@@ -136,12 +130,16 @@ function Navbar({ theme, toggleTheme }) {
                   fontSize: '1rem',
                   cursor: 'pointer'
                 }}
+                // Open "Write" as a new tab of the app by pushing route -- SPA, so actually replaces current "page"
+                // Explain to user this is an editor in the same app.
                 onClick={handleWriteClick}
+                aria-label="Write a blog"
+                title="Write a new blog post (opens editor tab in app)"
               >
                 Write
               </button>
               <button
-                onClick={handleLogout}
+                onClick={onLogout}
                 style={{
                   background: 'var(--button-bg)',
                   color: 'var(--button-text)',
@@ -155,7 +153,6 @@ function Navbar({ theme, toggleTheme }) {
                 }}
                 aria-label="Log out"
               >Logout</button>
-              {/* Optionally, show current username */}
               <span style={{
                 marginLeft: '0.55rem', color: 'var(--text-secondary)', fontWeight: 400, fontSize: '0.97rem'
               }}>
@@ -185,9 +182,11 @@ function Navbar({ theme, toggleTheme }) {
       <LoginModal
         open={modalOpen}
         onClose={() => setModalOpen(false)}
-        onLogin={handleLogin}
+        onLogin={(userObj) => {
+          if (onLogin) onLogin(userObj);
+          setModalOpen(false);
+        }}
       />
-      {/* Inline style for demo/preview if CSS file isn't loaded */}
       <style>
         {`
         /* No-op: styles moved to App.css or main CSS */

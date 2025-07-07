@@ -1,4 +1,3 @@
-import React from "react";
 import Logo from "./Logo";
 
 /**
@@ -7,10 +6,30 @@ import Logo from "./Logo";
  * It includes: Logo/brand, tagline/description, and an accent call-to-action.
  * Uses a gradient background and adapts to light/dark themes.
  */
+import React, { useState, useEffect } from "react";
+import Logo from "./Logo";
+
+/**
+ * PUBLIC_INTERFACE
+ * HeroSection displays a visually rich site intro/header at the top of the homepage.
+ * It includes: Logo/brand, tagline/description, and an accent call-to-action.
+ * Uses a gradient background and adapts to light/dark themes. Now has entrance animation (slide in from right).
+ */
 function HeroSection() {
+  // Mounting logic for entrance animation (slide in from right)
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    // Delay for smoother entrance, matching Navbar but in opposite direction
+    const timeout = setTimeout(() => setMounted(true), 200);
+    return () => clearTimeout(timeout);
+  }, []);
+
   return (
     <section
-      className="hero-gradient"
+      className={
+        "hero-gradient hero-section-entrance" +
+        (mounted ? " hero-section-entrance--mounted" : "")
+      }
       style={{
         width: "100%",
         padding: "3.8rem 0 3.1rem 0",
